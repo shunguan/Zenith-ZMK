@@ -23,7 +23,6 @@
     quick-tap-ms = <100>;
     global-quick-tap;
     flavor = "tap-preferred";
-    tapping-term-ms = <170>;
 };
 
 / {
@@ -41,7 +40,7 @@
 
         backspace_combo {
             timeout-ms = <50>;
-            key-positions = <26 27>;
+            key-positions = <14 15>;
             bindings = <&kp BACKSPACE>;
         };
 
