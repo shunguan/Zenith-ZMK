@@ -75,14 +75,14 @@
         pw1: pw1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(W) &kp LS(T) &kp J &kp AT &kp N9 &kp N3 &kp N9 &kp N4>;
+            bindings = <&none &kp LS(W) &kp LS(T) &kp J &kp AT &kp N9 &kp N3 &kp N9 &kp N4 &kp ENTER>;
             label = "PW1";
         };
 
         pw2: pw2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(S) &kp LS(G) &kp M &kp A &kp Y &kp N9 &kp N3 &kp N9 &kp N4 &kp AT &kp LS(A) &kp M &kp A &kp Z &kp O &kp N>;
+            bindings = <&none &kp LS(S) &kp LS(G) &kp M &kp A &kp Y &kp N9 &kp N3 &kp N9 &kp N4 &kp AT &kp LS(A) &kp M &kp A &kp Z &kp O &kp N &kp ENTER>;
             label = "PW2";
         };
     };
@@ -112,7 +112,7 @@
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
             bindings = <
-&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &trans  &kp UP_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans  &kp RIGHT_SHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans  &trans  &trans  &trans  &pw1  &pw2  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &trans  &kp UP_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_UP  &trans  &kp RIGHT_SHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans  &trans  &trans  &trans  &pw1  &pw2  &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
