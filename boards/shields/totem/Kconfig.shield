@@ -2,6 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 
+config SHIELD_ZENITH_DONGLE
+    def_bool $(shields_list_contains,zenith_dongle)
+
 config SHIELD_ZENITH_LEFT
     def_bool $(shields_list_contains,zenith_left)
 

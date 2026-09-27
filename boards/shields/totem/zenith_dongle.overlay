@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2025 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/*
+ * Prospector dongle for Zenith.
+ *
+ * Reuses zenith.dtsi so the matrix transform and physical layout stay in one
+ * place, then swaps the real key scan for a mock: the dongle is the split
+ * central and has no switches of its own.
+ */
+
+#include "zenith.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+/*
+ * zenith_layouts.dtsi points the physical layout at the matrix kscan. Repoint
+ * it at the mock so ZMK Studio still sees a complete physical layout here.
+ */
+&ergomech_zenith_layout {
+    kscan = <&mock_kscan>;
+};
+
+/delete-node/ &kscan0;
