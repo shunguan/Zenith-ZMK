@@ -1,3 +1,6 @@
+name: zenith-zmk
 build:
+  cmake: .
+  kconfig: Kconfig
   settings:
     board_root: .

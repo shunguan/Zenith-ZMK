@@ -1,0 +1,19 @@
+config ZENITH_DONGLE_BACKLIGHT_OFF_ON_USB_SUSPEND
+    bool "Turn the Prospector backlight off while the USB host is suspended"
+    default y
+    depends on SHIELD_PROSPECTOR_ADAPTER && !PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
+    help
+      When the computer sleeps, the USB bus enters suspend. Drive the display
+      backlight PWM to 0 then, and back to CONFIG_PROSPECTOR_FIXED_BRIGHTNESS on
+      resume.
+
+      This is deliberately NOT available with the ambient light sensor enabled.
+      The module's ALS thread re-sets the backlight roughly every 100ms from its
+      own light reading, so it would overwrite a 0 almost immediately and the
+      screen would flicker rather than go dark. With the sensor disabled the
+      module sets the brightness exactly once, at init, so a 0 written here
+      stays put.
+
+      ZMK's own display blanking is a different thing and does not replace this:
+      it blanks the LCD controller only, leaving this separately-driven
+      backlight lit.
