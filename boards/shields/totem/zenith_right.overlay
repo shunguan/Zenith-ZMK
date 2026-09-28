@@ -5,6 +5,7 @@
  */
 
 #include "zenith.dtsi"
+#include "xiao_d_extra_pins.dtsi"
 
 &default_transform {
     col-offset = <6>;
