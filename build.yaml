@@ -1,18 +1,22 @@
 include:
   # Prospector dongle: the split central. ZMK Studio lives here now, because
   # the central is the side that holds the keymap.
-  - board: seeeduino_xiao_ble
+  #
+  # Board is xiao_ble//zmk, not seeeduino_xiao_ble: that board was removed from
+  # ZMK after v0.3, and this tree now builds against ZMK main (Zephyr 4.1) so
+  # the module's new status screens (modifier indicators) are available.
+  - board: xiao_ble//zmk
     shield: zenith_dongle prospector_adapter
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   # Both halves are peripherals while the dongle is central. Drop these
   # cmake-args (and reflash after settings_reset) to go back to dongle-less.
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: zenith_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: zenith_right
     snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: settings_reset
