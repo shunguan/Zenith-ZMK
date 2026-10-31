@@ -14,9 +14,16 @@ include:
   - board: xiao_ble//zmk
     shield: zenith_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  # NOTE: `snippet: zmk-usb-logging` used to be on this target (inherited from
+  # b8ac4c8, long before the dongle work) and is deliberately gone. It selects
+  # the whole USB device stack + CDC ACM + console on a BATTERY-powered half and
+  # pins LOG_PROCESS_THREAD_SLEEP_MS at 100, so a log thread woke 10x/second
+  # forever. That made the right half drain visibly faster than the left.
+  # ZMK's own docs: "Enabling logging increases the power usage of your
+  # keyboard, and can have a non-trivial impact to your time on battery."
+  # Re-add it ONLY for a debugging session, then take it back out.
   - board: xiao_ble//zmk
     shield: zenith_right
-    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: xiao_ble//zmk
     shield: settings_reset
