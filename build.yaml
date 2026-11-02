@@ -3,8 +3,15 @@ include:
     shield: zenith_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+  # NOTE: `snippet: zmk-usb-logging` used to be on this target (since b8ac4c8)
+  # and is deliberately gone. It selects the whole USB device stack + CDC ACM +
+  # console on a BATTERY-powered half and pins LOG_PROCESS_THREAD_SLEEP_MS at
+  # 100, so a log thread woke 10x/second forever with no cable attached. That
+  # made the right half drain visibly faster than the left.
+  # ZMK's own docs: "Enabling logging increases the power usage of your
+  # keyboard, and can have a non-trivial impact to your time on battery."
+  # Re-add it ONLY for a debugging session, then take it back out.
   - board: seeeduino_xiao_ble
-    shield: zenith_right    
-    snippet: zmk-usb-logging 
+    shield: zenith_right
   - board: seeeduino_xiao_ble
     shield: settings_reset
